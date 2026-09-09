@@ -265,7 +265,7 @@ class GitHubSync extends utils.Adapter {
 
   async getLocalFiles(basePath) {
     const files = [];
-    const includePattern = this.config.includePathPattern || "**/*.js";
+    const includePattern = this.config.includePathPattern || "**/*.js,**/*.ts";
     const excludePattern = this.config.excludePathPattern || "";
 
     try {
@@ -304,7 +304,7 @@ class GitHubSync extends utils.Adapter {
 
       if (Array.isArray(response.data)) {
         for (const item of response.data) {
-          if (item.type === "file" && item.name.endsWith(".js")) {
+          if (item.type === "file" && (item.name.endsWith(".js") || item.name.endsWith(".ts"))) {
             files.push({
               path: item.path,
               sha: item.sha,

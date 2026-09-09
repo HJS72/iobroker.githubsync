@@ -54,7 +54,7 @@
     "syncInterval": 300,
     "autoSync": true,
     "pullBeforePush": true,
-    "includePathPattern": "**/*.js",
+    "includePathPattern": "**/*.js,**/*.ts",
     "excludePathPattern": ""
   },
   "encryptedNative": ["gitHubToken"],

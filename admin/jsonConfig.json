@@ -78,7 +78,7 @@
         "includePathPattern": {
           "type": "text",
           "label": "Include Path Pattern",
-          "placeholder": "**/*.js",
+          "placeholder": "**/*.js,**/*.ts",
           "sm": 12
         },
         "excludePathPattern": {
@@ -89,7 +89,7 @@
         },
         "_patternHelp": {
           "type": "staticText",
-          "text": "Use glob patterns for file matching. Examples: **/*.js, test_*.js, **/lib/**/*.js",
+          "text": "Use glob patterns for file matching, comma-separated for multiple. Examples: **/*.js,**/*.ts, test_*.js, **/lib/**/*.js",
           "sm": 12
         }
       }
