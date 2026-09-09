@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Syncs local javascript-adapter scripts with a private GitHub repository",
   "author": {
-    "name": "Stefan",
+    "name": "HJS72",
     "email": "stefan@example.com"
   },
   "homepage": "https://github.com/HJS72/iobroker.GitHubSync",
