@@ -1,0 +1,94 @@
+{
+  "type": "tabs",
+  "items": {
+    "main": {
+      "type": "panel",
+      "label": "Main",
+      "items": {
+        "_githubHeader": {
+          "type": "header",
+          "text": "GitHub Configuration",
+          "sm": 12
+        },
+        "gitHubUrl": {
+          "type": "text",
+          "label": "GitHub Repository URL",
+          "placeholder": "https://github.com/username/repo",
+          "sm": 12,
+          "md": 6
+        },
+        "gitHubToken": {
+          "type": "password",
+          "label": "GitHub Personal Access Token",
+          "placeholder": "ghp_...",
+          "sm": 12,
+          "md": 6
+        },
+        "_localHeader": {
+          "type": "header",
+          "text": "Local Configuration",
+          "sm": 12
+        },
+        "localScriptPath": {
+          "type": "text",
+          "label": "Local Script Path",
+          "placeholder": "Auto-detected from JavaScript adapter",
+          "help": "Leave empty to auto-detect from JavaScript adapter configuration. If empty, default path will be used.",
+          "sm": 12
+        },
+        "_syncHeader": {
+          "type": "header",
+          "text": "Sync Settings",
+          "sm": 12
+        },
+        "syncInterval": {
+          "type": "number",
+          "label": "Sync Interval (seconds)",
+          "min": 60,
+          "sm": 12,
+          "md": 6
+        },
+        "autoSync": {
+          "type": "checkbox",
+          "label": "Auto Sync",
+          "sm": 12,
+          "md": 6
+        },
+        "pullBeforePush": {
+          "type": "checkbox",
+          "label": "Pull Before Push",
+          "sm": 12,
+          "md": 6
+        }
+      }
+    },
+    "advanced": {
+      "type": "panel",
+      "label": "Advanced",
+      "items": {
+        "_patternHeader": {
+          "type": "header",
+          "text": "Advanced File Patterns",
+          "sm": 12
+        },
+        "includePathPattern": {
+          "type": "text",
+          "label": "Include Path Pattern",
+          "placeholder": "**/*.js",
+          "sm": 12
+        },
+        "excludePathPattern": {
+          "type": "text",
+          "label": "Exclude Path Pattern",
+          "placeholder": "",
+          "sm": 12
+        },
+        "_patternHelp": {
+          "type": "staticText",
+          "text": "Use glob patterns for file matching. Examples: **/*.js, test_*.js, **/lib/**/*.js",
+          "sm": 12
+        }
+      }
+    }
+  }
+}

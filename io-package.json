@@ -40,7 +40,7 @@
     "connectionType": "cloud",
     "dataSource": "push",
     "adminUI": {
-      "config": "materialize"
+      "config": "json"
     },
     "preserveSettings": [
       "objects"
@@ -57,6 +57,8 @@
     "includePathPattern": "**/*.js",
     "excludePathPattern": ""
   },
+  "encryptedNative": ["gitHubToken"],
+  "protectedNative": ["gitHubToken"],
   "instanceObjects": [
     {
       "_id": "syncNow",
