@@ -1,0 +1,20 @@
+{
+  "Main": "Allgemein",
+  "Advanced": "Erweitert",
+  "GitHub Configuration": "GitHub-Konfiguration",
+  "GitHub Repository URL": "GitHub-Repository-URL",
+  "GitHub Personal Access Token": "Persönliches GitHub-Zugriffstoken",
+  "Local Configuration": "Lokale Konfiguration",
+  "Local Script Path": "Lokaler Skriptpfad",
+  "Leave empty to auto-detect from JavaScript adapter configuration. If empty, default path will be used.": "Leer lassen, um den Pfad automatisch aus der JavaScript-Adapter-Konfiguration zu ermitteln. Wenn leer, wird ein Standardpfad verwendet.",
+  "Sync Settings": "Sync-Einstellungen",
+  "Sync Interval (seconds)": "Sync-Intervall (Sekunden)",
+  "Auto Sync": "Automatische Synchronisierung",
+  "Pull Before Push": "Vor dem Hochladen herunterladen",
+  "Move locally deleted files to repo trash folder": "Lokal gelöschte Dateien in den Papierkorb-Ordner des Repos verschieben",
+  "If a script is deleted locally, move its GitHub copy into a trash/ folder in the repo instead of leaving it in place.": "Wenn ein Skript lokal gelöscht wird, die GitHub-Kopie in einen trash/-Ordner im Repo verschieben, statt sie unverändert zu lassen.",
+  "Advanced File Patterns": "Erweiterte Dateimuster",
+  "Include Path Pattern": "Pfadmuster einschließen",
+  "Exclude Path Pattern": "Pfadmuster ausschließen",
+  "Use glob patterns for file matching, comma-separated for multiple. Examples: **/*.js,**/*.ts, test_*.js, **/lib/**/*.js": "Glob-Muster für die Dateizuordnung verwenden, für mehrere durch Komma getrennt. Beispiele: **/*.js,**/*.ts, test_*.js, **/lib/**/*.js"
+}

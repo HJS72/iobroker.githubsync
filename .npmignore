@@ -24,3 +24,4 @@ CHANGELOG.md
 *.swo
 *~
 .DS_Store
+*.tgz

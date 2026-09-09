@@ -16,3 +16,4 @@ build/
 coverage/
 .nyc_output/
 .eslintcache
+*.tgz

@@ -1,0 +1,20 @@
+{
+  "Main": "Main",
+  "Advanced": "Advanced",
+  "GitHub Configuration": "GitHub Configuration",
+  "GitHub Repository URL": "GitHub Repository URL",
+  "GitHub Personal Access Token": "GitHub Personal Access Token",
+  "Local Configuration": "Local Configuration",
+  "Local Script Path": "Local Script Path",
+  "Leave empty to auto-detect from JavaScript adapter configuration. If empty, default path will be used.": "Leave empty to auto-detect from JavaScript adapter configuration. If empty, default path will be used.",
+  "Sync Settings": "Sync Settings",
+  "Sync Interval (seconds)": "Sync Interval (seconds)",
+  "Auto Sync": "Auto Sync",
+  "Pull Before Push": "Pull Before Push",
+  "Move locally deleted files to repo trash folder": "Move locally deleted files to repo trash folder",
+  "If a script is deleted locally, move its GitHub copy into a trash/ folder in the repo instead of leaving it in place.": "If a script is deleted locally, move its GitHub copy into a trash/ folder in the repo instead of leaving it in place.",
+  "Advanced File Patterns": "Advanced File Patterns",
+  "Include Path Pattern": "Include Path Pattern",
+  "Exclude Path Pattern": "Exclude Path Pattern",
+  "Use glob patterns for file matching, comma-separated for multiple. Examples: **/*.js,**/*.ts, test_*.js, **/lib/**/*.js": "Use glob patterns for file matching, comma-separated for multiple. Examples: **/*.js,**/*.ts, test_*.js, **/lib/**/*.js"
+}
