@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "githubsync",
-    "version": "0.0.2",
+    "version": "0.1.0",
     "title": "GitHub Script Sync",
     "desc": {
       "en": "Sync local javascript-adapter scripts with a private GitHub repository",
@@ -55,7 +55,8 @@
     "autoSync": true,
     "pullBeforePush": true,
     "includePathPattern": "**/*.js,**/*.ts",
-    "excludePathPattern": ""
+    "excludePathPattern": "",
+    "trashDeletedFiles": true
   },
   "encryptedNative": ["gitHubToken"],
   "protectedNative": ["gitHubToken"],

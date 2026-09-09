@@ -260,6 +260,11 @@ class GitHubSync extends utils.Adapter {
     // Push local changes to GitHub
     syncCount += await this.pushToGitHub(localPath, localFiles);
 
+    // Move files that were deleted locally into the repo's trash folder
+    if (this.config.trashDeletedFiles !== false) {
+      syncCount += await this.trashDeletedFiles(localFiles);
+    }
+
     return syncCount;
   }
 
@@ -318,6 +323,114 @@ class GitHubSync extends utils.Adapter {
     }
 
     return files;
+  }
+
+  /**
+   * List all files in the repo's default branch, recursively, via the git tree API.
+   */
+  async getGitHubFileTree() {
+    try {
+      const repoInfo = await this.octokit.rest.repos.get({
+        owner: this.githubInfo.owner,
+        repo: this.githubInfo.repo,
+      });
+      const branch = repoInfo.data.default_branch;
+
+      const ref = await this.octokit.rest.git.getRef({
+        owner: this.githubInfo.owner,
+        repo: this.githubInfo.repo,
+        ref: `heads/${branch}`,
+      });
+
+      const tree = await this.octokit.rest.git.getTree({
+        owner: this.githubInfo.owner,
+        repo: this.githubInfo.repo,
+        tree_sha: ref.data.object.sha,
+        recursive: "true",
+      });
+
+      return tree.data.tree
+        .filter((item) => item.type === "blob")
+        .map((item) => ({ path: item.path, sha: item.sha }));
+    } catch (error) {
+      this.log.warn(`Error fetching GitHub file tree: ${error.message}`);
+      return [];
+    }
+  }
+
+  /**
+   * Move files that exist on GitHub but no longer exist locally into a trash/ folder in the repo,
+   * instead of leaving them as orphans or silently losing them.
+   */
+  async trashDeletedFiles(localFiles) {
+    const includePattern = this.config.includePathPattern || "**/*.js,**/*.ts";
+    const excludePattern = this.config.excludePathPattern || "";
+    const localPaths = new Set(localFiles.map((f) => f.relativePath));
+
+    const remoteFiles = await this.getGitHubFileTree();
+    let trashedCount = 0;
+
+    for (const remoteFile of remoteFiles) {
+      if (remoteFile.path.startsWith("trash/")) continue; // don't re-trash already-trashed files
+      if (!shouldIncludeFile(remoteFile.path, includePattern, excludePattern)) continue;
+      if (localPaths.has(remoteFile.path)) continue; // still exists locally
+
+      const moved = await this.moveToTrash(remoteFile.path, remoteFile.sha);
+      if (moved) trashedCount++;
+    }
+
+    return trashedCount;
+  }
+
+  /**
+   * Copy a file to trash/<path> and delete the original.
+   * ponytail: overwrites any previous trash entry at the same path (no versioned trash history)
+   */
+  async moveToTrash(relativePath, sha) {
+    const trashPath = `trash/${relativePath}`;
+
+    try {
+      const existing = await this.octokit.rest.repos.getContent({
+        owner: this.githubInfo.owner,
+        repo: this.githubInfo.repo,
+        path: relativePath,
+      });
+
+      let trashSha;
+      try {
+        const trashExisting = await this.octokit.rest.repos.getContent({
+          owner: this.githubInfo.owner,
+          repo: this.githubInfo.repo,
+          path: trashPath,
+        });
+        trashSha = trashExisting.data.sha;
+      } catch {
+        trashSha = undefined;
+      }
+
+      await this.octokit.rest.repos.createOrUpdateFileContents({
+        owner: this.githubInfo.owner,
+        repo: this.githubInfo.repo,
+        path: trashPath,
+        message: `Move deleted file to trash: ${relativePath}`,
+        content: existing.data.content,
+        sha: trashSha,
+      });
+
+      await this.octokit.rest.repos.deleteFile({
+        owner: this.githubInfo.owner,
+        repo: this.githubInfo.repo,
+        path: relativePath,
+        message: `Remove locally deleted file: ${relativePath}`,
+        sha,
+      });
+
+      this.log.info(`Moved deleted file to trash: ${relativePath}`);
+      return true;
+    } catch (error) {
+      this.log.warn(`Could not move ${relativePath} to trash: ${error.message}`);
+      return false;
+    }
   }
 
   async fetchGitHubContent(localFiles) {

@@ -62,6 +62,13 @@
           "label": "Pull Before Push",
           "sm": 12,
           "md": 6
+        },
+        "trashDeletedFiles": {
+          "type": "checkbox",
+          "label": "Move locally deleted files to repo trash folder",
+          "help": "If a script is deleted locally, move its GitHub copy into a trash/ folder in the repo instead of leaving it in place.",
+          "sm": 12,
+          "md": 6
         }
       }
     },
