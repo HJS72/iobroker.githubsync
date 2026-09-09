@@ -6,6 +6,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const { Octokit } = require("@octokit/rest");
 const simpleGit = require("simple-git");
+const { shouldIncludeFile } = require("./lib/helpers");
 
 class GitHubSync extends utils.Adapter {
   constructor(options) {
@@ -274,18 +275,12 @@ class GitHubSync extends utils.Adapter {
         const fullPath = path.join(basePath, file);
         const stat = await fs.stat(fullPath);
 
-        if (stat.isFile()) {
-          // Simple pattern matching
-          if (
-            this.matchesPattern(file, includePattern) &&
-            !this.matchesPattern(file, excludePattern)
-          ) {
-            files.push({
-              path: file,
-              fullPath: fullPath,
-              relativePath: path.relative(basePath, fullPath),
-            });
-          }
+        if (stat.isFile() && shouldIncludeFile(file, includePattern, excludePattern)) {
+          files.push({
+            path: file,
+            fullPath: fullPath,
+            relativePath: path.relative(basePath, fullPath),
+          });
         }
       }
     } catch (error) {
@@ -295,19 +290,6 @@ class GitHubSync extends utils.Adapter {
     }
 
     return files;
-  }
-
-  matchesPattern(filePath, pattern) {
-    if (!pattern) return true;
-
-    // Simple glob pattern matching
-    const regexPattern = pattern
-      .replace(/\./g, "\\.")
-      .replace(/\*/g, ".*")
-      .replace(/\?/g, ".");
-
-    const regex = new RegExp(`^${regexPattern}$`);
-    return regex.test(filePath);
   }
 
   async getGitHubFiles() {
