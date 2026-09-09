@@ -29,6 +29,7 @@
     "build": "echo 'Building...'"
   },
   "dependencies": {
+    "@iobroker/adapter-core": "^3.4.0",
     "@octokit/rest": "^20.0.0",
     "simple-git": "^3.20.0",
     "fs-extra": "^11.0.0"
