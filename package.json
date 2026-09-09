@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Syncs local javascript-adapter scripts with a private GitHub repository",
   "author": {
-    "name": "Your Name",
-    "email": "your.email@example.com"
+    "name": "Stefan",
+    "email": "stefan@example.com"
   },
   "homepage": "https://github.com/HJS72/iobroker.GitHubSync",
   "license": "MIT",
@@ -17,6 +17,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/HJS72/iobroker.GitHubSync.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HJS72/iobroker.GitHubSync/issues"
   },
   "engines": {
     "node": ">=14.0.0"
