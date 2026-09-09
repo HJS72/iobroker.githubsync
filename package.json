@@ -29,12 +29,14 @@
     "build": "echo 'Building...'"
   },
   "dependencies": {
-    "octokit": "^19.0.0",
-    "simple-git": "^3.20.0"
+    "@octokit/rest": "^20.0.0",
+    "simple-git": "^3.20.0",
+    "fs-extra": "^11.0.0"
   },
   "devDependencies": {
+    "@iobroker/adapter-core": "^5.0.0",
     "eslint": "^8.50.0",
     "mocha": "^10.2.0",
     "@types/node": "^20.0.0"
-  }
+  },
 }
