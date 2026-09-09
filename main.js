@@ -375,7 +375,7 @@ class GitHubSync extends utils.Adapter {
       if (!shouldIncludeFile(remoteFile.path, includePattern, excludePattern)) continue;
       if (localPaths.has(remoteFile.path)) continue; // still exists locally
 
-      const moved = await this.moveToTrash(remoteFile.path, remoteFile.sha);
+      const moved = await this.moveToTrash(remoteFile.path);
       if (moved) trashedCount++;
     }
 
@@ -386,7 +386,7 @@ class GitHubSync extends utils.Adapter {
    * Copy a file to trash/<path> and delete the original.
    * ponytail: overwrites any previous trash entry at the same path (no versioned trash history)
    */
-  async moveToTrash(relativePath, sha) {
+  async moveToTrash(relativePath) {
     const trashPath = `trash/${relativePath}`;
 
     try {
@@ -422,7 +422,7 @@ class GitHubSync extends utils.Adapter {
         repo: this.githubInfo.repo,
         path: relativePath,
         message: `Remove locally deleted file: ${relativePath}`,
-        sha,
+        sha: existing.data.sha,
       });
 
       this.log.info(`Moved deleted file to trash: ${relativePath}`);
@@ -493,9 +493,15 @@ class GitHubSync extends utils.Adapter {
         this.log.debug(`Pushed to GitHub: ${file.relativePath}`);
         pushedCount++;
       } catch (error) {
-        this.log.warn(
-          `Error pushing ${file.relativePath} to GitHub: ${error.message}`
-        );
+        if (error.code === "ENOENT" && this.config.trashDeletedFiles !== false) {
+          // File vanished between listing and reading (deleted mid-sync) - trash its GitHub copy instead of just warning
+          this.log.info(`${file.relativePath} disappeared during sync, moving GitHub copy to trash`);
+          await this.moveToTrash(file.relativePath);
+        } else {
+          this.log.warn(
+            `Error pushing ${file.relativePath} to GitHub: ${error.message}`
+          );
+        }
       }
     }
 
