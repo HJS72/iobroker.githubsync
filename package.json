@@ -4,7 +4,7 @@
   "description": "Syncs local javascript-adapter scripts with a private GitHub repository",
   "author": {
     "name": "HJS72",
-    "email": "stefan@example.com"
+    "email": "stefan@spanninger.de"
   },
   "homepage": "https://github.com/HJS72/iobroker.githubsync",
   "license": "MIT",
