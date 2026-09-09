@@ -34,7 +34,7 @@
     "fs-extra": "^11.0.0"
   },
   "devDependencies": {
-    "@iobroker/adapter-core": "^5.0.0",
+    "@iobroker/adapter-core": "^4.0.0",
     "eslint": "^8.50.0",
     "mocha": "^10.2.0",
     "@types/node": "^20.0.0"
