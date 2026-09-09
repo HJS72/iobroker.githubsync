@@ -20,7 +20,7 @@
       "scripts",
       "javascript"
     ],
-    "homepage": "https://github.com/HJS72/iobroker.GitHubSync",
+    "homepage": "https://github.com/HJS72/iobroker.githubsync",
     "license": "MIT",
     "platform": "Javascript/Node.js",
     "architecture": [
@@ -31,14 +31,17 @@
     "main": "main.js",
     "icon": "admin/icon.png",
     "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/HJS72/iobroker.GitHubSync/main/admin/icon.png",
-    "readme": "https://github.com/HJS72/iobroker.GitHubSync/blob/main/README.md",
+    "extIcon": "https://raw.githubusercontent.com/HJS72/iobroker.githubsync/main/admin/icon.png",
+    "readme": "https://github.com/HJS72/iobroker.githubsync/blob/main/README.md",
     "loglevel": "info",
     "mode": "daemon",
     "type": "general",
     "compact": false,
     "connectionType": "cloud",
     "dataSource": "push",
+    "adminUI": {
+      "config": "materialize"
+    },
     "preserveSettings": [
       "objects"
     ],

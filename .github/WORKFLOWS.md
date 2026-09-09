@@ -10,7 +10,7 @@ This repository includes automated workflows for continuous integration and depl
   - **Lint**: Runs ESLint to check code style
   - **Test**: Executes the test suite
   - **Build**: Creates npm package
-- **Status Badge**: [![Test](https://github.com/HJS72/iobroker.GitHubSync/workflows/Test/badge.svg)](https://github.com/HJS72/iobroker.GitHubSync/actions?query=workflow:Test)
+- **Status Badge**: [![Test](https://github.com/HJS72/iobroker.githubsync/workflows/Test/badge.svg)](https://github.com/HJS72/iobroker.githubsync/actions?query=workflow:Test)
 
 ### Release (`release.yml`)
 - **Trigger**: Push a git tag (e.g., `v0.0.1`)
@@ -25,7 +25,7 @@ This repository includes automated workflows for continuous integration and depl
 - **Jobs**:
   - **Security**: npm audit for vulnerabilities
   - **CodeQL**: GitHub's code analysis tool
-- **Status Badge**: [![CodeQL](https://github.com/HJS72/iobroker.GitHubSync/workflows/Code%20Quality/badge.svg)](https://github.com/HJS72/iobroker.GitHubSync/actions?query=workflow:Code+Quality)
+- **Status Badge**: [![CodeQL](https://github.com/HJS72/iobroker.githubsync/workflows/Code%20Quality/badge.svg)](https://github.com/HJS72/iobroker.githubsync/actions?query=workflow:Code+Quality)
 
 ### Dependabot (`dependabot.yml`)
 - **Trigger**: Weekly on Monday at 3:00 AM UTC
@@ -63,7 +63,7 @@ The Release workflow will automatically:
 
 ## Workflow Status
 
-All workflows are enabled and configured. Check [Actions tab](https://github.com/HJS72/iobroker.GitHubSync/actions) for run history and logs.
+All workflows are enabled and configured. Check [Actions tab](https://github.com/HJS72/iobroker.githubsync/actions) for run history and logs.
 
 ## Troubleshooting
 

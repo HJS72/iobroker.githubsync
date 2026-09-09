@@ -4,7 +4,7 @@
 const utils = require("@iobroker/adapter-core");
 const fs = require("fs-extra");
 const path = require("path");
-const Octokit = require("@octokit/rest");
+const { Octokit } = require("@octokit/rest");
 const simpleGit = require("simple-git");
 
 class GitHubSync extends utils.Adapter {

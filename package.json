@@ -6,7 +6,7 @@
     "name": "HJS72",
     "email": "stefan@example.com"
   },
-  "homepage": "https://github.com/HJS72/iobroker.GitHubSync",
+  "homepage": "https://github.com/HJS72/iobroker.githubsync",
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -16,10 +16,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/HJS72/iobroker.GitHubSync.git"
+    "url": "https://github.com/HJS72/iobroker.githubsync.git"
   },
   "bugs": {
-    "url": "https://github.com/HJS72/iobroker.GitHubSync/issues"
+    "url": "https://github.com/HJS72/iobroker.githubsync/issues"
   },
   "engines": {
     "node": ">=14.0.0"
@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@iobroker/adapter-core": "^3.4.0",
-    "@octokit/rest": "^20.0.0",
+    "@octokit/rest": "^19.0.11",
     "simple-git": "^3.20.0",
     "fs-extra": "^11.0.0"
   },
