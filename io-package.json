@@ -29,9 +29,9 @@
       "arm64"
     ],
     "main": "main.js",
-    "icon": "admin/icon.png",
+    "icon": "admin/githubsync.svg",
     "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/HJS72/iobroker.githubsync/main/admin/icon.png",
+    "extIcon": "https://raw.githubusercontent.com/HJS72/iobroker.githubsync/main/admin/githubsync.svg",
     "readme": "https://github.com/HJS72/iobroker.githubsync/blob/main/README.md",
     "loglevel": "info",
     "mode": "daemon",
