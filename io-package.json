@@ -54,7 +54,7 @@
     "includePathPattern": "**/*.js",
     "excludePathPattern": ""
   },
-  "objects": [
+  "instanceObjects": [
     {
       "_id": "syncNow",
       "type": "state",
@@ -133,6 +133,5 @@
       },
       "native": {}
     }
-  ],
-  "instanceObjects": []
+  ]
 }
