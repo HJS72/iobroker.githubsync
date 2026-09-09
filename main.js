@@ -6,7 +6,7 @@ const fs = require("fs-extra");
 const path = require("path");
 const { Octokit } = require("@octokit/rest");
 const simpleGit = require("simple-git");
-const { shouldIncludeFile } = require("./lib/helpers");
+const { shouldIncludeFile, parseGitHubUrl } = require("./lib/helpers");
 
 class GitHubSync extends utils.Adapter {
   constructor(options) {
@@ -119,7 +119,7 @@ class GitHubSync extends utils.Adapter {
     this.octokit = new Octokit({ auth: token });
 
     // Parse GitHub URL
-    const urlParts = this.parseGitHubUrl(url);
+    const urlParts = parseGitHubUrl(url);
     if (!urlParts) {
       throw new Error("Invalid GitHub URL format");
     }
@@ -141,24 +141,6 @@ class GitHubSync extends utils.Adapter {
 
     // Initialize simple-git
     this.git = simpleGit();
-  }
-
-  parseGitHubUrl(url) {
-    // Parse GitHub URL (supports https://github.com/owner/repo or git@github.com:owner/repo.git)
-    let match;
-
-    if (url.includes("github.com")) {
-      match = url.match(/github\.com[:/](.+?)\/(.+?)(\.git)?$/);
-      if (match) {
-        return {
-          owner: match[1],
-          repo: match[2].replace(".git", ""),
-          url: url,
-        };
-      }
-    }
-
-    return null;
   }
 
   async startSyncLoop() {

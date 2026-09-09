@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "githubsync",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "title": "GitHub Script Sync",
+    "titleLang": {
+      "en": "GitHub Script Sync",
+      "de": "GitHub Skript-Synchronisierung"
+    },
     "desc": {
       "en": "Sync local javascript-adapter scripts with a private GitHub repository",
       "de": "Synchronisiert lokal javascript-adapter Skripte mit einem privaten GitHub-Repository"
@@ -42,10 +46,37 @@
     "adminUI": {
       "config": "json"
     },
+    "dependencies": [
+      {
+        "js-controller": ">=5.0.0"
+      }
+    ],
     "preserveSettings": [
       "objects"
     ],
-    "isInstalled": false
+    "isInstalled": false,
+    "news": {
+      "NEXT": {
+        "en": "see CHANGELOG.md",
+        "de": "siehe CHANGELOG.md"
+      },
+      "0.1.1": {
+        "en": "Official-adapter test suite (@iobroker/testing), required io-package.json fields added",
+        "de": "Test-Suite fuer offiziellen Adapter (@iobroker/testing), benoetigte io-package.json Felder ergaenzt"
+      },
+      "0.1.0": {
+        "en": "Locally deleted script files are moved to a trash/ folder in the GitHub repo instead of being left orphaned",
+        "de": "Lokal geloeschte Skripte werden im GitHub-Repo in einen trash/-Ordner verschoben statt verwaist zu bleiben"
+      },
+      "0.0.2": {
+        "en": "Fixed missing instanceObjects for existing instances",
+        "de": "Fehlende instanceObjects fuer bestehende Instanzen behoben"
+      },
+      "0.0.1": {
+        "en": "Initial release",
+        "de": "Erste Veroeffentlichung"
+      }
+    }
   },
   "native": {
     "gitHubUrl": "",

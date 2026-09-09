@@ -1,6 +1,6 @@
 {
   "name": "iobroker.githubsync",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Syncs local javascript-adapter scripts with a private GitHub repository",
   "author": {
     "name": "HJS72",
@@ -26,7 +26,10 @@
   },
   "main": "main.js",
   "scripts": {
-    "test": "mocha",
+    "test:js": "mocha test/unit.js",
+    "test:package": "mocha test/package.js",
+    "test:integration": "mocha test/integration.js",
+    "test": "npm run test:js && npm run test:package && npm run test:integration",
     "lint": "eslint .",
     "pack": "npm run lint && npm pack",
     "build": "echo 'Building...'"

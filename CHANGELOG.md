@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-09-09
+
+### Changed
+- Replaced ad-hoc test/test.js with proper @iobroker/testing suite: test/unit.js (pure helper functions), test/package.js (package.json/io-package.json validation), test/integration.js (real js-controller startup test)
+- Moved `parseGitHubUrl` out of main.js into lib/helpers.js so it's unit-testable without an adapter instance
+- Added `common.titleLang` and `common.news` to io-package.json (required by official adapter checker)
+- Added `common.dependencies` minimum js-controller version
+- Fixed placeholder author email
+
 ## [0.1.0] - 2026-09-09
 
 ### Added
@@ -70,7 +79,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Error tracking and reporting
 - Multilingual admin UI
 
-[Unreleased]: https://github.com/HJS72/iobroker.githubsync/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/HJS72/iobroker.githubsync/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/HJS72/iobroker.githubsync/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/HJS72/iobroker.githubsync/compare/v0.0.2...v0.1.0
 [0.0.2]: https://github.com/HJS72/iobroker.githubsync/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/HJS72/iobroker.githubsync/releases/tag/v0.0.1
