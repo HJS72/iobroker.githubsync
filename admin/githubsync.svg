@@ -6,12 +6,12 @@
 
   <!-- thick two-tone counter-rotating sync arrows, forming a ring exactly around the white circle -->
   <!-- white outline drawn first (wider stroke/polygon), then the colored arrow on top -->
-  <path d="M 98.8 51.3 A 37 37 0 0 1 40.2 92.3" fill="none" stroke="#ffffff" stroke-width="18"/>
+  <path d="M 98.8 51.3 A 37 37 0 0 1 40.2 92.3" fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="square"/>
   <polygon points="46,85.4 34.4,99.2 26.4,80.8" fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
   <path d="M 98.8 51.3 A 37 37 0 0 1 40.2 92.3" fill="none" stroke="#60a5fa" stroke-width="14" stroke-linecap="butt"/>
   <polygon points="46,85.4 34.4,99.2 26.4,80.8" fill="#60a5fa"/>
 
-  <path d="M 29.2 76.7 A 37 37 0 0 1 87.8 35.7" fill="none" stroke="#ffffff" stroke-width="18"/>
+  <path d="M 29.2 76.7 A 37 37 0 0 1 87.8 35.7" fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="square"/>
   <polygon points="82,42.6 93.6,28.8 101.6,47.2" fill="#ffffff" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
   <path d="M 29.2 76.7 A 37 37 0 0 1 87.8 35.7" fill="none" stroke="#1e40af" stroke-width="14" stroke-linecap="butt"/>
   <polygon points="82,42.6 93.6,28.8 101.6,47.2" fill="#1e40af"/>
