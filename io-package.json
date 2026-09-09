@@ -42,8 +42,7 @@
     "preserveSettings": [
       "objects"
     ],
-    "isInstalled": false,
-    "installedVersion": "0.0.1"
+    "isInstalled": false
   },
   "native": {
     "gitHubUrl": "",

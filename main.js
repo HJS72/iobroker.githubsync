@@ -98,8 +98,11 @@ class GitHubSync extends utils.Adapter {
     const token = this.config.gitHubToken;
     const url = this.config.gitHubUrl;
 
+    // Allow adapter to start even if GitHub is not configured
     if (!token || !url) {
-      throw new Error("GitHub token and URL must be configured");
+      this.log.warn("GitHub not configured. Please configure credentials in adapter settings.");
+      this.setState("connected", false, true);
+      return;
     }
 
     // Initialize Octokit (GitHub API client)
@@ -122,7 +125,8 @@ class GitHubSync extends utils.Adapter {
       this.log.info("Successfully connected to GitHub repository");
       this.setState("connected", true, true);
     } catch (error) {
-      throw new Error(`Failed to connect to GitHub: ${error.message}`);
+      this.log.error(`Failed to connect to GitHub: ${error.message}`);
+      this.setState("connected", false, true);
     }
 
     // Initialize simple-git
@@ -152,11 +156,15 @@ class GitHubSync extends utils.Adapter {
 
     if (this.config.autoSync) {
       this.syncInterval = setInterval(() => {
-        this.performSync();
+        this.performSync().catch(err => {
+          this.log.error("Sync interval error: " + err.message);
+        });
       }, interval);
 
-      // Perform initial sync
-      await this.performSync();
+      // Perform initial sync if configured
+      if (this.config.gitHubToken && this.config.gitHubUrl) {
+        await this.performSync();
+      }
     }
   }
 
@@ -177,6 +185,12 @@ class GitHubSync extends utils.Adapter {
   async performSync() {
     if (this.syncing) {
       this.log.warn("Sync already in progress, skipping");
+      return;
+    }
+
+    // Check if GitHub is configured
+    if (!this.config.gitHubToken || !this.config.gitHubUrl) {
+      this.log.debug("GitHub not configured, skipping sync");
       return;
     }
 
