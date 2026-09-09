@@ -20,7 +20,7 @@
       "scripts",
       "javascript"
     ],
-    "homepage": "https://github.com/yourusername/iobroker.githubsync",
+    "homepage": "https://github.com/HJS72/iobroker.GitHubSync",
     "license": "MIT",
     "platform": "Javascript/Node.js",
     "architecture": [
@@ -31,8 +31,8 @@
     "main": "main.js",
     "icon": "admin/icon.png",
     "enabled": true,
-    "extIcon": "https://raw.githubusercontent.com/yourusername/iobroker.githubsync/master/admin/icon.png",
-    "readme": "https://github.com/yourusername/iobroker.githubsync/blob/master/README.md",
+    "extIcon": "https://raw.githubusercontent.com/HJS72/iobroker.GitHubSync/main/admin/icon.png",
+    "readme": "https://github.com/HJS72/iobroker.GitHubSync/blob/main/README.md",
     "loglevel": "info",
     "mode": "daemon",
     "type": "general",

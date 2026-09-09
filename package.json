@@ -6,7 +6,7 @@
     "name": "Your Name",
     "email": "your.email@example.com"
   },
-  "homepage": "https://github.com/yourusername/iobroker.githubsync",
+  "homepage": "https://github.com/HJS72/iobroker.GitHubSync",
   "license": "MIT",
   "keywords": [
     "ioBroker",
@@ -16,7 +16,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/iobroker.githubsync"
+    "url": "https://github.com/HJS72/iobroker.GitHubSync.git"
   },
   "engines": {
     "node": ">=14.0.0"

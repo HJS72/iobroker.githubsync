@@ -3,6 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/iobroker.githubsync.svg)](https://www.npmjs.com/package/iobroker.githubsync)
 [![Downloads](https://img.shields.io/npm/dm/iobroker.githubsync.svg)](https://www.npmjs.com/package/iobroker.githubsync)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![GitHub](https://img.shields.io/badge/GitHub-HJS72-blue)](https://github.com/HJS72/iobroker.GitHubSync)
 
 This ioBroker adapter synchronizes local JavaScript adapter scripts with a private GitHub repository, enabling version control, backup, and team collaboration for your ioBroker automation scripts.
 
@@ -221,7 +222,8 @@ For issues, feature requests, or questions:
 - Check the logs in ioBroker admin
 - Verify configuration settings
 - Review GitHub token permissions
-- Submit issues on GitHub repository
+- [Submit issues on GitHub](https://github.com/HJS72/iobroker.GitHubSync/issues)
+- [View project](https://github.com/HJS72/iobroker.GitHubSync)
 
 ## Development
 
