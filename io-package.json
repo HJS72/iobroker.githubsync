@@ -1,0 +1,139 @@
+{
+  "common": {
+    "name": "githubsync",
+    "version": "0.0.1",
+    "title": "GitHub Script Sync",
+    "desc": {
+      "en": "Sync local javascript-adapter scripts with a private GitHub repository",
+      "de": "Synchronisiert lokal javascript-adapter Skripte mit einem privaten GitHub-Repository"
+    },
+    "authors": [
+      {
+        "name": "Your Name",
+        "email": "your.email@example.com"
+      }
+    ],
+    "keywords": [
+      "ioBroker",
+      "github",
+      "sync",
+      "scripts",
+      "javascript"
+    ],
+    "homepage": "https://github.com/yourusername/iobroker.githubsync",
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "architecture": [
+      "amd64",
+      "arm",
+      "arm64"
+    ],
+    "main": "main.js",
+    "icon": "admin/icon.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/yourusername/iobroker.githubsync/master/admin/icon.png",
+    "readme": "https://github.com/yourusername/iobroker.githubsync/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "general",
+    "compact": false,
+    "connectionType": "cloud",
+    "dataSource": "push",
+    "preserveSettings": [
+      "objects"
+    ],
+    "isInstalled": false,
+    "installedVersion": "0.0.1"
+  },
+  "native": {
+    "gitHubUrl": "",
+    "gitHubToken": "",
+    "localScriptPath": "",
+    "syncInterval": 300,
+    "autoSync": true,
+    "pullBeforePush": true,
+    "includePathPattern": "**/*.js",
+    "excludePathPattern": ""
+  },
+  "objects": [
+    {
+      "_id": "syncNow",
+      "type": "state",
+      "common": {
+        "name": "Trigger sync now",
+        "type": "boolean",
+        "role": "button",
+        "read": true,
+        "write": true,
+        "desc": "Set to true to trigger an immediate sync"
+      },
+      "native": {}
+    },
+    {
+      "_id": "lastSync",
+      "type": "state",
+      "common": {
+        "name": "Last sync timestamp",
+        "type": "number",
+        "role": "value.time",
+        "read": true,
+        "write": false,
+        "desc": "Timestamp of last successful sync"
+      },
+      "native": {}
+    },
+    {
+      "_id": "lastError",
+      "type": "state",
+      "common": {
+        "name": "Last error message",
+        "type": "string",
+        "role": "value",
+        "read": true,
+        "write": false,
+        "desc": "Last error message from sync operation"
+      },
+      "native": {}
+    },
+    {
+      "_id": "syncStatus",
+      "type": "state",
+      "common": {
+        "name": "Sync status",
+        "type": "string",
+        "role": "value",
+        "read": true,
+        "write": false,
+        "desc": "Current sync status (idle/syncing/error)"
+      },
+      "native": {}
+    },
+    {
+      "_id": "syncCount",
+      "type": "state",
+      "common": {
+        "name": "Sync count",
+        "type": "number",
+        "role": "value.count",
+        "read": true,
+        "write": false,
+        "desc": "Number of files synced in last operation"
+      },
+      "native": {}
+    },
+    {
+      "_id": "connected",
+      "type": "state",
+      "common": {
+        "name": "Connected to GitHub",
+        "type": "boolean",
+        "role": "indicator.connected",
+        "read": true,
+        "write": false,
+        "desc": "Connection status to GitHub"
+      },
+      "native": {}
+    }
+  ],
+  "instanceObjects": []
+}
