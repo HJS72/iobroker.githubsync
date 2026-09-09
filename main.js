@@ -14,6 +14,9 @@ class GitHubSync extends utils.Adapter {
       name: "githubsync",
     });
 
+    this.config = this.config || {};
+    this.namespace = this.namespace || "githubsync";
+
     this.on("ready", this.onReady.bind(this));
     this.on("stateChange", this.onStateChange.bind(this));
     this.on("unload", this.onUnload.bind(this));
@@ -26,6 +29,9 @@ class GitHubSync extends utils.Adapter {
   }
 
   async onReady() {
+    this.config = this.config || {};
+    this.namespace = this.namespace || "githubsync";
+
     // Read config
     this.log.info("Adapter started in instance " + this.instance);
 
@@ -47,6 +53,8 @@ class GitHubSync extends utils.Adapter {
   }
 
   async resolveLocalScriptPath() {
+    this.config = this.config || {};
+
     // Try to auto-detect script path from JavaScript adapter
     if (!this.config.localScriptPath) {
       try {
@@ -95,6 +103,7 @@ class GitHubSync extends utils.Adapter {
   }
 
   async initializeGitHub() {
+    this.config = this.config || {};
     const token = this.config.gitHubToken;
     const url = this.config.gitHubUrl;
 
@@ -152,6 +161,7 @@ class GitHubSync extends utils.Adapter {
   }
 
   async startSyncLoop() {
+    this.config = this.config || {};
     const interval = (this.config.syncInterval || 300) * 1000; // Convert to ms
 
     if (this.config.autoSync) {
@@ -173,6 +183,7 @@ class GitHubSync extends utils.Adapter {
       return;
     }
 
+    this.namespace = this.namespace || "githubsync";
     const localId = id.replace(`${this.namespace}.`, "");
 
     if (localId === "syncNow" && state.val === true) {
@@ -183,6 +194,8 @@ class GitHubSync extends utils.Adapter {
   }
 
   async performSync() {
+    this.config = this.config || {};
+
     if (this.syncing) {
       this.log.warn("Sync already in progress, skipping");
       return;

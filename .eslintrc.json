@@ -1,12 +1,23 @@
 {
   "env": {
     "node": true,
-    "es2021": true
+    "browser": true,
+    "es2021": true,
+    "mocha": true
   },
   "extends": "eslint:recommended",
   "parserOptions": {
     "ecmaVersion": 12,
     "sourceType": "module"
+  },
+  "globals": {
+    "$": "readonly",
+    "systemDictionary": "writable",
+    "translatePage": "readonly",
+    "showToast": "readonly",
+    "alert": "readonly",
+    "load": "readonly",
+    "save": "readonly"
   },
   "rules": {
     "indent": [

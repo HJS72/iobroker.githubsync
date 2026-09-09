@@ -1,4 +1,3 @@
-/*global systemDictionary:true */
 "use strict";
 
 if (typeof systemDictionary === "undefined") {
@@ -65,6 +64,7 @@ Object.assign(systemDictionary, {
 });
 
 // the function loadSettings has to exist ...
+// eslint-disable-next-line no-unused-vars
 function load(settings, onChange) {
   // example: select elements with id=key and class=value and insert value
   if (!settings) return;
@@ -95,6 +95,7 @@ function load(settings, onChange) {
 }
 
 // the function save has to exist ...
+// eslint-disable-next-line no-unused-vars
 function save(callback) {
   // example: select elements with id=key and class=value and store value
   const obj = {};
@@ -120,7 +121,7 @@ function save(callback) {
   callback(obj);
 }
 
-function showMessage(msg, type) {
+function showMessage(msg) {
   // Use ioBroker showMessage if available
   if (typeof showToast !== "undefined") {
     showToast(msg);
