@@ -8,6 +8,7 @@
         "_githubHeader": {
           "type": "header",
           "text": "GitHub Configuration",
+          "size": 3,
           "sm": 12
         },
         "gitHubUrl": {
@@ -27,6 +28,7 @@
         "_localHeader": {
           "type": "header",
           "text": "Local Configuration",
+          "size": 3,
           "sm": 12
         },
         "localScriptPath": {
@@ -39,6 +41,7 @@
         "_syncHeader": {
           "type": "header",
           "text": "Sync Settings",
+          "size": 3,
           "sm": 12
         },
         "syncInterval": {
@@ -69,6 +72,7 @@
         "_patternHeader": {
           "type": "header",
           "text": "Advanced File Patterns",
+          "size": 3,
           "sm": 12
         },
         "includePathPattern": {

@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "githubsync",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "title": "GitHub Script Sync",
     "desc": {
       "en": "Sync local javascript-adapter scripts with a private GitHub repository",

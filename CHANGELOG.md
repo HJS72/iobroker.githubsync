@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.2] - 2026-09-09
+
+### Fixed
+- Bump version to trigger js-controller upgrade routine so missing `instanceObjects` (syncNow, lastSync, lastError, syncStatus, syncCount, connected) get created for existing instances
+
+## [0.0.1]
+
 ### Added
 - Initial project setup
 - Basic adapter structure
@@ -58,5 +65,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Error tracking and reporting
 - Multilingual admin UI
 
-[Unreleased]: https://github.com/HJS72/iobroker.githubsync/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/HJS72/iobroker.githubsync/compare/v0.0.2...HEAD
+[0.0.2]: https://github.com/HJS72/iobroker.githubsync/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/HJS72/iobroker.githubsync/releases/tag/v0.0.1
