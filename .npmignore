@@ -1,0 +1,26 @@
+# Source control
+.git
+.gitignore
+.github
+
+# Development and testing
+test/
+.eslintrc.json
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Documentation (not needed in published package)
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+EXAMPLES.md
+QUICKSTART.md
+CHANGELOG.md
+
+# IDE and OS files
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.DS_Store
